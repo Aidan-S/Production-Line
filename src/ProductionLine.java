@@ -32,7 +32,7 @@ public class ProductionLine {
 	public Tower removeTower() {
 		Tower t = new Tower();
 		if(!output.isEmpty()) {
-			if(output.remove() instanceof Disk) {
+			if(output.remove() instanceof Tower) {
 				t = (Tower) output.remove();
 			}else {
 				System.out.println("No more Towers");
