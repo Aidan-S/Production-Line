@@ -1,7 +1,11 @@
 
 public class Disk {
 	
-	private int size;
+	private int radius;
+	
+	public Disk(int num) {
+		radius = num;
+	}
 	
 	
 	
