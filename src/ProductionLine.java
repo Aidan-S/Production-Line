@@ -24,18 +24,20 @@ public class ProductionLine {
 	}
 	
 	public void process() {
-		
 		for(int i = 0; i < input.size(); i++) {
 			
 		}
 	}
 	
 	public Tower removeTower() {
+		Tower t = new Tower();
 		if(!output.isEmpty()) {
-			
+			if(output.remove() instanceof Disk) {
+				t = (Tower) output.remove();
+			}else {
+				System.out.println("No more Towers");
+			}	
 		}
-			
+		return t;
 	}
-	
-
 }

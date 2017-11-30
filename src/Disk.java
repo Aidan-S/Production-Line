@@ -8,5 +8,7 @@ public class Disk {
 	}
 	
 	
-	
+	public void compareTo(object o) {
+		
+	}
 }
