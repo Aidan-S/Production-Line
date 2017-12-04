@@ -8,6 +8,11 @@ public class Tower {
 		plates = new Stack<Disk>();
 	}
 	
+	public Tower(Disk d) {
+		plates = new Stack<Disk>();
+		plates.add(d);
+	}
+	
 	public void flip() {
 		Stack<Disk> flipped = new Stack<Disk>();
 		for(int i = 0; i < plates.size(); i++) {
@@ -15,6 +20,7 @@ public class Tower {
 		}
 		plates = flipped;
 	}
+
 	
 	public void clear() {
 		plates.clear();

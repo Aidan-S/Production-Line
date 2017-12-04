@@ -3,13 +3,13 @@ import java.util.Queue;
 
 public class ProductionLine {
 	
-	Queue input;
-	Queue output;
+	Queue<Disk> input;
+	Queue<Tower> output;
 	Tower robot;
 	
 	public ProductionLine() {
 		input = new LinkedList<Disk>();
-		input = new LinkedList<Tower>();
+		output = new LinkedList<Tower>();
 		robot = new Tower();
 	}
 	
@@ -24,20 +24,29 @@ public class ProductionLine {
 	}
 	
 	public void process() {
-		for(int i = 0; i < input.size(); i++) {
+		for(Disk disk : input){
 			
+			if(disk.getRadius() > robot.plates.peek().getRadius()) {
+				robot.plates.push(disk);
+				input.remove(disk);
+			}else{
+				robot.flip();
+				output.add(robot);
+				robot.plates.clear();
+			}
+		}
+		if(!input.isEmpty()) {
+			output.add(e)input.remove();
 		}
 	}
 	
 	public Tower removeTower() {
-		Tower t = new Tower();
 		if(!output.isEmpty()) {
-			if(output.remove() instanceof Tower) {
-				t = (Tower) output.remove();
-			}else {
-				System.out.println("No more Towers");
-			}	
+			return output.remove();
+		}else {
+			System.out.println("No more Towers");
+			return null;
 		}
-		return t;
 	}
+
 }
