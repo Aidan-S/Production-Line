@@ -8,7 +8,10 @@ public class testerProduction {
 		Disk b = new Disk(6);
 		Disk c = new Disk(7);
 		Disk d = new Disk(12);
-
+		
+		System.out.println(a);
+		
+		
 		line.addDisk(a);
 		line.addDisk(b);
 		line.addDisk(c);

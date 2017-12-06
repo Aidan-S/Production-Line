@@ -25,8 +25,7 @@ public class ProductionLine {
 	
 	public void process() {
 		for(Disk disk : input){
-			
-			if(disk.getRadius() > robot.plates.peek().getRadius() || robot.plates.isEmpty()) {
+			if(disk != null && (robot.plates.isEmpty() || disk.getRadius() > robot.plates.peek().getRadius())) {
 				robot.plates.push(disk);
 				input.remove(disk);
 			}else{
@@ -36,6 +35,7 @@ public class ProductionLine {
 				robot.plates.push(disk);
 				input.remove(disk);
 			}
+		System.out.println(disk.getRadius());
 		}
 		if(!robot.plates.isEmpty()) {
 			output.add(robot);
