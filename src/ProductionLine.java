@@ -26,17 +26,20 @@ public class ProductionLine {
 	public void process() {
 		for(Disk disk : input){
 			
-			if(disk.getRadius() > robot.plates.peek().getRadius()) {
+			if(disk.getRadius() > robot.plates.peek().getRadius() || robot.plates.isEmpty()) {
 				robot.plates.push(disk);
 				input.remove(disk);
 			}else{
 				robot.flip();
 				output.add(robot);
 				robot.plates.clear();
+				robot.plates.push(disk);
+				input.remove(disk);
 			}
 		}
-		if(!input.isEmpty()) {
-			output.add(e)input.remove();
+		if(!robot.plates.isEmpty()) {
+			output.add(robot);
+			robot.plates.clear();
 		}
 	}
 	
@@ -47,6 +50,14 @@ public class ProductionLine {
 			System.out.println("No more Towers");
 			return null;
 		}
+	}
+	
+	public String toString() {
+		String s = "";
+		for(Tower t : output){
+			s += t.toString() + "\n \n";
+		}
+		return s;
 	}
 
 }

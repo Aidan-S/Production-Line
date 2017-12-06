@@ -8,22 +8,47 @@ public class Tower {
 		plates = new Stack<Disk>();
 	}
 	
-	public Tower(Disk d) {
+	public Tower(boolean t) {
 		plates = new Stack<Disk>();
-		plates.add(d);
+		if(t) {
+			plates.push(new Disk(10));
+			plates.push(new Disk(8));
+			plates.push(new Disk(8));
+			plates.push(new Disk(5));
+			plates.push(new Disk(4));
+											
+		}
 	}
 	
 	public void flip() {
-		Stack<Disk> flipped = new Stack<Disk>();
-		for(int i = 0; i < plates.size(); i++) {
-			flipped.add(plates.pop());
+		Tower t = new Tower();
+		for(Disk d : plates) {
+			t.add(d);
 		}
-		plates = flipped;
+		this.plates = t.plates;
+		
 	}
 
 	
+	public void add(Disk d) {
+		this.plates.push(d);
+	}
+	
 	public void clear() {
 		plates.clear();
+	}
+	
+	public String toString() {
+		String s = "";
+		Disk d;
+		this.flip();
+		
+		while(!this.plates.isEmpty()) {
+			d = plates.pop();
+			s += d.getRadius() + "\n";
+		}
+		
+		return s;
 	}
 	
 }

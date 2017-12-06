@@ -1,5 +1,5 @@
 
-public class Disk implements Comparable{
+public class Disk{
 	
 	private int radius;
 	
@@ -11,11 +11,11 @@ public class Disk implements Comparable{
 		return radius;
 	}
 
-	
+/*	
 	@Override
 	public int compareTo(Object o) {
 		Disk d = (Disk) o;
 		return this.radius - d.getRadius();
-	}
+	}*/
 
 }
