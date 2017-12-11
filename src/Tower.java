@@ -33,7 +33,7 @@ public class Tower {
 	}
 	
 	public void add(Disk d) {
-		this.plates.push(d);
+		plates.push(d);
 		
 	}
 	

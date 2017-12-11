@@ -18,20 +18,21 @@ public class ProductionLine {
 	}
 	
 	public void unloadRobot() {
-		robot.flip();
-		output.add(robot);
+		Tower t = robot;
+		t.flip();
+		output.add(t);
 		robot.clear();
 	}
 	
 	public void process() {
-		Disk d;
+		Disk temp;
 		while(!input.isEmpty()) {
-			d = input.remove();
-			if(robot.isEmpty() || robot.top() >= d.getRadius()) {
-				robot.add(d);
+			temp = input.remove();
+			if(robot.isEmpty() || robot.top() <= temp.getRadius()) {
+				robot.add(temp);
 			}else{
 				unloadRobot();
-				robot.add(d);
+				robot.add(temp);
 			}	
 		}
 		if(!robot.isEmpty()) {
@@ -52,7 +53,7 @@ public class ProductionLine {
 		String s = "[";
 
 		while(!output.isEmpty()) {
-			s += (output.remove()) + " ";	
+			s += (output.remove().toString()) + " ";	
 		}
 		s += "]";
 		
