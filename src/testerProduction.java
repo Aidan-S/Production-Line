@@ -9,7 +9,7 @@ public class testerProduction {
 		Disk c = new Disk(7);
 		Disk d = new Disk(12);
 		
-		System.out.println(a);
+		
 		
 		
 		line.addDisk(a);
@@ -19,7 +19,7 @@ public class testerProduction {
 		
 		line.process();
 		
-		System.out.println(line);
+		
 		
 	}
 

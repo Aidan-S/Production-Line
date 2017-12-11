@@ -11,11 +11,13 @@ public class Disk{
 		return radius;
 	}
 
-/*	
-	@Override
+	
 	public int compareTo(Object o) {
 		Disk d = (Disk) o;
 		return this.radius - d.getRadius();
-	}*/
+	}
 
+	public String toString() {
+		return "" + radius;
+	}
 }

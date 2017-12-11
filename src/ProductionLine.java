@@ -24,24 +24,33 @@ public class ProductionLine {
 	}
 	
 	public void process() {
-		for(Disk disk : input){
-			if(disk != null && (robot.plates.isEmpty() || disk.getRadius() > robot.plates.peek().getRadius())) {
-				robot.plates.push(disk);
-				input.remove(disk);
-			}else{
-				robot.flip();
-				output.add(robot);
-				robot.plates.clear();
-				robot.plates.push(disk);
-				input.remove(disk);
-			}
-		System.out.println(disk.getRadius());
+		while(!input.isEmpty()) {
+			robot.add(input.remove());
 		}
-		if(!robot.plates.isEmpty()) {
-			output.add(robot);
-			robot.plates.clear();
+		if(!robot.isEmpty()) {
+			unloadRobot();
 		}
 	}
+	
+	
+	/*for(Disk disk : input){
+		if(disk != null && (robot.plates.isEmpty() || disk.getRadius() > robot.plates.peek().getRadius())) {
+			robot.add(disk);
+			input.remove(disk);
+		}else{
+			robot.flip();
+			output.add(robot);
+			robot.plates.clear();
+			robot.plates.push(disk);
+			input.remove(disk);
+			System.out.println("b");
+		}
+	}
+	if(!robot.plates.isEmpty()) {
+		output.add(robot);
+		robot.plates.clear();
+	}*/
+	
 	
 	public Tower removeTower() {
 		if(!output.isEmpty()) {

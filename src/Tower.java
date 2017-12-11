@@ -35,6 +35,10 @@ public class Tower {
 		
 	}
 	
+	public boolean isEmpty() {
+		return plates.size() == 0;
+	}
+	
 	public void clear() {
 		plates.clear();
 	}
