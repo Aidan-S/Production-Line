@@ -19,7 +19,8 @@ public class testerProduction {
 		
 		line.process();
 		
-		
+		System.out.println(line.toString());
+		System.out.println("a");
 		
 	}
 

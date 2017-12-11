@@ -12,7 +12,7 @@ public class ProductionLine {
 		output = new LinkedList<Tower>();
 		robot = new Tower();
 	}
-	
+
 	public void addDisk(Disk piece) {
 		input.add(piece);
 	}
@@ -24,33 +24,20 @@ public class ProductionLine {
 	}
 	
 	public void process() {
+		Disk d;
 		while(!input.isEmpty()) {
-			robot.add(input.remove());
+			d = input.remove();
+			if(robot.isEmpty() || robot.top() >= d.getRadius()) {
+				robot.add(d);
+			}else{
+				unloadRobot();
+				robot.add(d);
+			}	
 		}
 		if(!robot.isEmpty()) {
 			unloadRobot();
 		}
 	}
-	
-	
-	/*for(Disk disk : input){
-		if(disk != null && (robot.plates.isEmpty() || disk.getRadius() > robot.plates.peek().getRadius())) {
-			robot.add(disk);
-			input.remove(disk);
-		}else{
-			robot.flip();
-			output.add(robot);
-			robot.plates.clear();
-			robot.plates.push(disk);
-			input.remove(disk);
-			System.out.println("b");
-		}
-	}
-	if(!robot.plates.isEmpty()) {
-		output.add(robot);
-		robot.plates.clear();
-	}*/
-	
 	
 	public Tower removeTower() {
 		if(!output.isEmpty()) {
@@ -62,10 +49,13 @@ public class ProductionLine {
 	}
 	
 	public String toString() {
-		String s = "";
-		for(Tower t : output){
-			s += t.toString() + "\n \n";
+		String s = "[";
+
+		while(!output.isEmpty()) {
+			s += (output.remove()) + " ";	
 		}
+		s += "]";
+		
 		return s;
 	}
 

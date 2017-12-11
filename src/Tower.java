@@ -25,10 +25,12 @@ public class Tower {
 		for(Disk d : plates) {
 			t.add(d);
 		}
-		this.plates = t.plates;
-		
+		this.plates = t.plates;	
 	}
-
+	
+	public int top() {
+		return plates.peek().getRadius();
+	}
 	
 	public void add(Disk d) {
 		this.plates.push(d);
