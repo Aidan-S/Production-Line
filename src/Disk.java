@@ -18,6 +18,11 @@ public class Disk{
 	}
 
 	public String toString() {
-		return "" + radius;
+		String s = "";
+		for(int i = 0; i < radius; i++) {
+			s += "=";
+		}
+		
+		return s;
 	}
 }

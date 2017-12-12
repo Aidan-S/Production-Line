@@ -21,11 +21,13 @@ public class Tower {
 	}
 	
 	public void flip() {
-		Tower t = new Tower();
-		for(Disk d : plates) {
-			t.add(d);
+		Stack<Disk> temp = new Stack<Disk>();
+		
+		while(!plates.isEmpty()) {
+			temp.push(plates.pop());
 		}
-		this.plates = t.plates;	
+		
+		plates = temp;	
 	}
 	
 	public int top() {
@@ -34,7 +36,6 @@ public class Tower {
 	
 	public void add(Disk d) {
 		plates.push(d);
-		
 	}
 	
 	public boolean isEmpty() {
@@ -47,12 +48,13 @@ public class Tower {
 	
 	public String toString() {
 		String s = "";
+		Tower tem;
 		Disk d;
-		this.flip();
+		flip();
 		
-		while(!this.plates.isEmpty()) {
+		while(!plates.isEmpty()) {
 			d = plates.pop();
-			s += d.getRadius() + "\n";
+			s += d.toString() + ", ";
 		}
 		
 		return s;

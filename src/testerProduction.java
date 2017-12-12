@@ -17,10 +17,19 @@ public class testerProduction {
 		line.addDisk(c);
 		line.addDisk(d);
 		
-		line.process();
+		Tower t = new Tower();
+		t.add(a);
+		t.add(b);
+		t.add(c);
+		t.add(d);
+		t.flip();
+		System.out.println(t);
+		t.flip();
+		System.out.println(t);
+		//line.process();
 		
-		System.out.println(line.toString());
-		System.out.println("a");
+		//System.out.println(line.toString());
+		//System.out.println("a");
 		
 	}
 

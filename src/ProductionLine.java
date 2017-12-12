@@ -18,9 +18,8 @@ public class ProductionLine {
 	}
 	
 	public void unloadRobot() {
-		Tower t = robot;
-		t.flip();
-		output.add(t);
+		robot.flip();
+		output.add(robot);
 		robot.clear();
 	}
 	
@@ -51,12 +50,12 @@ public class ProductionLine {
 	
 	public String toString() {
 		String s = "[";
-
+		Queue<Tower> temp = output;
 		while(!output.isEmpty()) {
 			s += (output.remove().toString()) + " ";	
 		}
 		s += "]";
-		
+		output = temp;
 		return s;
 	}
 
