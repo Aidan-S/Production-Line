@@ -23,9 +23,17 @@ public class testerProduction {
 		t.add(c);
 		t.add(d);
 		t.flip();
+		System.out.println("A start \n");
 		System.out.println(t);
+		System.out.println("A done \n");
 		t.flip();
+		System.out.println("B Start \n");
 		System.out.println(t);
+		System.out.println("B done \n");
+		t.flip();
+		System.out.println("C Start \n");
+		System.out.println(t);
+		System.out.println("C done \n");
 		//line.process();
 		
 		//System.out.println(line.toString());

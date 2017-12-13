@@ -20,14 +20,19 @@ public class Tower {
 		}
 	}
 	
+	public Tower(Stack<Disk> stuff) {
+		plates = new Stack<Disk>();
+		this.plates = stuff;
+	}
+	
 	public void flip() {
 		Stack<Disk> temp = new Stack<Disk>();
 		
 		while(!plates.isEmpty()) {
-			temp.push(plates.pop());
+			temp.push(this.plates.pop());
 		}
 		
-		plates = temp;	
+		this.plates = temp;	
 	}
 	
 	public int top() {
@@ -36,6 +41,10 @@ public class Tower {
 	
 	public void add(Disk d) {
 		plates.push(d);
+	}
+	
+	public Disk pop() {
+		return plates.pop();
 	}
 	
 	public boolean isEmpty() {
@@ -48,14 +57,14 @@ public class Tower {
 	
 	public String toString() {
 		String s = "";
-		Tower tem;
-		Disk d;
-		flip();
-		
-		while(!plates.isEmpty()) {
-			d = plates.pop();
-			s += d.toString() + ", ";
+		Tower temp = new Tower(plates);
+
+		temp.flip();
+		System.out.println("kk");
+		while(!temp.isEmpty()) {
+			s += temp.pop().toString() + ", ";
 		}
+		
 		
 		return s;
 	}

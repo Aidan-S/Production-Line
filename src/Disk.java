@@ -12,10 +12,10 @@ public class Disk{
 	}
 
 	
-	public int compareTo(Object o) {
+	/*public int compareTo(Object o) {
 		Disk d = (Disk) o;
 		return this.radius - d.getRadius();
-	}
+	}*/
 
 	public String toString() {
 		String s = "";
