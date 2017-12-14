@@ -1,3 +1,4 @@
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -18,8 +19,7 @@ public class ProductionLine {
 	}
 	
 	public void unloadRobot() {
-		robot.flip();
-		output.add(robot);
+		output.add(robot.flip());
 		robot.clear();
 	}
 	
@@ -27,11 +27,11 @@ public class ProductionLine {
 		Disk temp;
 		while(!input.isEmpty()) {
 			temp = input.remove();
-			if(robot.isEmpty() || robot.top() <= temp.getRadius()) {
-				robot.add(temp);
+			if(robot.isEmpty() || robot.peek().compareTo(temp) <= 0) {
+				robot.push(temp);
 			}else{
 				unloadRobot();
-				robot.add(temp);
+				robot.push(temp);
 			}	
 		}
 		if(!robot.isEmpty()) {
@@ -49,14 +49,15 @@ public class ProductionLine {
 	}
 	
 	public String toString() {
-		String s = "[";
+		String s = "";
 		Queue<Tower> temp = output;
 		while(!output.isEmpty()) {
 			s += (output.remove().toString()) + " ";	
 		}
-		s += "]";
 		output = temp;
 		return s;
 	}
 
 }
+
+
