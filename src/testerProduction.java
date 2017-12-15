@@ -8,9 +8,9 @@ public class testerProduction {
 		Disk c = new Disk(7);
 		Disk d = new Disk(12);
 		Disk a2 = new Disk(4);
-		Disk b2 = new Disk(3);
-		Disk c2 = new Disk(5);
-		Disk d2 = new Disk(1);
+		Disk b2 = new Disk(4);
+		Disk c2 = new Disk(7);
+		Disk d2 = new Disk(9);
 		
 		
 		
@@ -25,8 +25,8 @@ public class testerProduction {
 		line.addDisk(d2);
 
 		line.process();
-		
-		System.out.println(line.toString());
+		System.out.println(line);
+		//System.out.println(line.toString());
 		//System.out.println("a");
 		
 	}
